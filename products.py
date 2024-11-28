@@ -12,7 +12,7 @@ class Product:
             raise ValueError("Quantity cannot be negative.")
 
     def get_quantity(self):
-        return float(self.quantity)
+        return self.quantity
 
     def set_quantity(self, quantity):
         self.quantity = quantity
@@ -22,15 +22,15 @@ class Product:
     def deactivate(self):
         self.active = False
 
+    def show(self):
+        return f"Product: {self.name}, Price: {self.price}, Quantity: {self.quantity}"
+
     def activate(self):
         if self.quantity >= 1:
             self.active = True
 
     def is_active(self):
         return self.active
-
-    def show(self):
-        return f"Product: {self.name}, Price: {self.price}, Quantity: {self.quantity}"
 
     def buy(self, quantity):
         if quantity > self.quantity:
